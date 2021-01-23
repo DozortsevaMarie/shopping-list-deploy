@@ -1,0 +1,24 @@
+.head {
+    grid-area: header;
+}
+.header{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 9fr 1fr;
+    /*grid-gap: 20px;*/
+    background-color: #1890ff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.title{
+    color: white;
+    /*vertical-align: middle;*/
+}
+.login{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    align-items: center;
+}

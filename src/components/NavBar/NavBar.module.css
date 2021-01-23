@@ -1,0 +1,17 @@
+.nav {
+    grid-area: nav;
+    background-color: #F5F5F7;
+    padding-top: 15px;
+    text-align: start;
+    min-height: 40vh;
+
+}
+.list {
+    list-style: none;
+    font-size: 1.1rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.item {
+    color: dimgrey;
+}
