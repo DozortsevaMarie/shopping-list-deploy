@@ -2,15 +2,18 @@
     font-size: 1.1em;
 }
 
-.addBtn.hidden{
+.addBtn.hidden {
     display: none;
 }
-.addText{
+
+.addText {
     margin-left: 5px;
 }
+
 .input {
     display: none;
 }
+
 .input.active {
     display: flex;
 }
