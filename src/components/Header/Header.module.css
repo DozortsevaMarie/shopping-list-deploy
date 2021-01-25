@@ -1,7 +1,8 @@
 .head {
     grid-area: header;
 }
-.header{
+
+.header {
     display: grid;
     height: 100%;
     grid-template-rows: 1fr;
@@ -11,14 +12,25 @@
     padding: 20px;
     box-sizing: border-box;
 }
-.title{
+
+.title {
     color: white;
     /*vertical-align: middle;*/
 }
-.login{
+
+.login {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 2fr;
     grid-gap: 10px;
     align-items: center;
+}
+
+.text {
+    color: #F5F5F7;
+    font-weight: bold;
+}
+.text:hover{
+    color: #F5F5F7;
+    transform: scale(1.05);
 }
