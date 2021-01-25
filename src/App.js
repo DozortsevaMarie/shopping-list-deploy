@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./App.module.css";
 import "antd/dist/antd.css";
-import Header from "./components/Header/Header";
 import CreateList from "./components/CreateList/CreateList";
 import { Route, Switch } from "react-router";
 import Profile from "./components/Profile/Profile";
