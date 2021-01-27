@@ -20,9 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e4a044a-6174-476a-87cf-7d0cdba2f541" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/DeniedAccess/DeniedAccess.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DeniedAccess/DeniedAccess.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListCard/ListCard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListCard/ListCard.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/loginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/loginReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +65,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../React/my-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -69,7 +83,14 @@
       <option name="presentableId" value="Default" />
       <updated>1611418882414</updated>
       <workItem from="1611418883492" duration="3620000" />
+<<<<<<< HEAD
       <workItem from="1611556984420" duration="11574000" />
+=======
+      <workItem from="1611556984420" duration="10888000" />
+      <workItem from="1611594694265" duration="1398000" />
+      <workItem from="1611644234421" duration="16827000" />
+      <workItem from="1611730594400" duration="1743000" />
+>>>>>>> develop
     </task>
     <servers />
   </component>
@@ -89,10 +110,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1611557273266">
+    <state x="708" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611682646972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611557273266" />
+    <state x="708" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1611682646972" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611731658565">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611731658565" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1611679076362">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611679076362" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1611420682394">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

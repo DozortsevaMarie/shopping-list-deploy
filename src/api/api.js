@@ -1,25 +1,36 @@
 import { createServer } from "miragejs";
-import * as axios from 'axios';
+import * as axios from "axios";
 
 createServer({
   routes() {
     this.get("api/auth/me", () => ({
       resultCode: 0,
-      users: [{
-        id: 2,
-        username: "blabla@bla.bla",
-      }]
+      users: [
+        {
+          id: 2,
+          username: "blabla@bla.bla",
+        },
+      ],
     }));
 
-    let newId = 3
+    let newId = 3;
     this.post("api/auth/login", (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
-      attrs.id = newId++
+      attrs.id = newId++;
 
       return {
         resultCode: 0,
-        user: attrs
-      }
+        user: attrs,
+      };
+    });
+
+    this.post("api/profile/photo", (schema, request) => {
+      let data = JSON.parse(request.requestBody);
+
+      return {
+        resultCode: 0,
+        data: data,
+      };
     });
   },
 });

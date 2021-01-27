@@ -26,19 +26,18 @@ const setAuthUserData = (userId, login, isAuth) => ({
   data: { userId, login, isAuth },
 });
 
-export const getAuthUserDataThunk = () => (dispatch) => {
+/*export const getAuthUserDataThunk = () => (dispatch) => {
   return authAPI.authorization().then((response) => {
     if (response.data.resultCode === 0) {
       let { id, email } = response.data.users;
       dispatch(setAuthUserData(id, email, true));
     }
   });
-};
+};*/
 
 export const login = (email, password, rememberMe) => (dispatch) => {
   authAPI.login(email, password, rememberMe).then((response) => {
     if (response.data.resultCode === 0) {
-      debugger
       dispatch(setAuthUserData(response.data.user.id, response.data.user.email, true));
     }
   });
