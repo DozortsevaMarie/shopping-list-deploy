@@ -32,6 +32,12 @@ createServer({
         data: data,
       };
     });
+
+    this.delete("api/auth/login", () => {
+      return {
+        resultCode: 0,
+      }
+    })
   },
 });
 
@@ -43,11 +49,11 @@ let instance = axios.create({
 
 
 export const authAPI = {
-  authorization() {
+  /*authorization() {
     return(
         instance.get(`auth/me`)
     )
-  },
+  },*/
   login(email, password, rememberMe = false) {
     return (
         instance.post(`auth/login`, {email, password, rememberMe})

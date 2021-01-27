@@ -15,7 +15,7 @@ const Login = (props) => {
 
   const onFinish = (values) => {
     props.login(values.username, values.password, values.remember);
-    history.push('/profile')
+    history.goBack();
     console.log("Success:", values);
   };
 

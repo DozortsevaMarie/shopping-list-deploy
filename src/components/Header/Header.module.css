@@ -15,7 +15,6 @@
 
 .title {
     color: white;
-    /*vertical-align: middle;*/
 }
 
 .login {
@@ -33,4 +32,8 @@
 .text:hover{
     color: #F5F5F7;
     transform: scale(1.05);
+}
+
+.btn {
+    margin-top: 10px;
 }
