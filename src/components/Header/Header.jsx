@@ -14,9 +14,12 @@ const Header = (props) => {
         <div className={styles.login}>
           <Avatar size="large" icon={<UserOutlined />} />
           {props.isAuth ? (
-            <NavLink to={"/profile"} className={styles.text}>
-              {props.login}
-            </NavLink>
+            <div>
+              <NavLink to={"/profile"} className={styles.text}>
+                {props.login}
+              </NavLink>
+              <Button className={styles.btn} size="small" onClick={props.logout}>Выйти</Button>
+            </div>
           ) : (
             <Button onClick={() => history.push("/login")}>Войти</Button>
           )}
