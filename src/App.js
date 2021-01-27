@@ -3,15 +3,14 @@ import styles from "./App.module.css";
 import "antd/dist/antd.css";
 import CreateList from "./components/CreateList/CreateList";
 import { Route, Switch } from "react-router";
-import Profile from "./components/Profile/Profile";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Settings from "./components/Settings/Settings";
 import NavBar from "./components/NavBar/NavBar";
 import ListContainer from "./components/ListContainer/ListContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/LoginContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
-const Login = React.lazy(() => import("./components/Login/Login"));
 const MyShoppingListsContainer = React.lazy(() =>
   import("./components/MyShoppingLists/MyShoppingListsContainer")
 );
@@ -22,8 +21,8 @@ function App() {
       <HeaderContainer />
       <NavBar />
       <div className={styles.content}>
-        <Route path={"/createList"} component={CreateList} />
-        <Route path={"/profile"} component={Profile} />
+        <Route path={"/create-list"} component={CreateList} />
+        <Route path={"/profile"} component={ProfileContainer} />
         <Switch>
           <Route
             exact

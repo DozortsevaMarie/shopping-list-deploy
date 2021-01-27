@@ -7,7 +7,7 @@ const NavBar = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <NavLink to="/createList" className={styles.item}>
+          <NavLink to="/create-list" className={styles.item}>
             Создать лист
           </NavLink>
         </li>
