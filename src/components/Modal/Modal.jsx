@@ -48,6 +48,7 @@ const ModalWindow = (props) => {
         <span>Название списка</span>
         <Input
           placeholder={"Введите название списка"}
+          value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
