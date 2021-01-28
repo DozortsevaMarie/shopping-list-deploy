@@ -3,6 +3,7 @@ const ADD_PRODUCT = 'ADD_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
 const EDIT_CONTENT = 'EDIT_CONTENT';
 const SAVE_LIST = 'SAVE_LIST';
+const ADD_ITEM_TO_SAVED_LIST = 'ADD_ITEM_TO_SAVED_LIST';
 const DELETE_ITEM_FROM_SAVED_LIST = 'DELETE_ITEM_FROM_SAVED_LIST';
 const EDIT_ITEM_IN_SAVED_LIST = 'EDIT_ITEM_IN_SAVED_LIST';
 const DELETE_LIST = 'DELETE_LIST';
@@ -58,6 +59,22 @@ const mainPageReducer = (state = initialState, action) => {
                 shoppingList: [],
                 inputElement: '',
             }
+        case ADD_ITEM_TO_SAVED_LIST:
+            let arrIndex = state.savedLists.findIndex(item => item.id === action.item.id);
+            let newItem = {
+                id: Math.floor(Math.random() * Math.floor(Math.random() * Date.now())),
+                name: action.name,
+            }
+            let newArr = {
+                id: action.item.id,
+                title: action.item.title,
+                description: action.item.description,
+                items: [...action.item.items, newItem]
+            }
+            return {
+                ...state,
+                savedLists: [...state.savedLists.slice(0, arrIndex), newArr, ...state.savedLists.slice(arrIndex + 1, state.savedLists.length)],
+            }
         case DELETE_ITEM_FROM_SAVED_LIST:
             let listIndex = state.savedLists.findIndex(item => item.id === action.item.id);
 
@@ -100,13 +117,15 @@ const mainPageReducer = (state = initialState, action) => {
 
 export const changeProductValue = (value) => ({type: CHANGE_PRODUCT_VALUE, value});
 
-export const addProduct = (name) => ({type: ADD_PRODUCT, name});
+export const addProduct = (item, name) => ({type: ADD_PRODUCT, item, name});
 
 export const editContent = (item, row) => ({type: EDIT_CONTENT, item, row});
 
 export const deleteProduct = (item, itemId) => ({type: DELETE_PRODUCT, item, itemId});
 
 export const saveList = (title, description, list) => ({type: SAVE_LIST, title, description, list});
+
+export const addItemToSavedList = (item, name) => ({type: ADD_ITEM_TO_SAVED_LIST, item, name})
 
 export const deleteItemFromSavedList = (item, id) => ({type: DELETE_ITEM_FROM_SAVED_LIST, item, id});
 

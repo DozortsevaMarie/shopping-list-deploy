@@ -1,14 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import styles from "../ListCard/ListCard.module.css";
 import { Button } from "antd";
 import {
+  addItemToSavedList,
+  changeProductValue,
   deleteItemFromSavedList,
   deleteList,
   editItemInSavedList,
 } from "../../redux/mainPageReducer";
 import { useHistory, useParams } from "react-router";
 import TableComponent from "../Table/TableComponent";
+import AddItem from "../AddItem/AddItem";
+import styles from "./ListContainer.module.css";
 
 const ListContainer = (props) => {
   let { id } = useParams();
@@ -25,6 +28,12 @@ const ListContainer = (props) => {
     <div>
       <h2>{list.title}</h2>
       <p>{list.description}</p>
+      <AddItem
+        changeProductValue={props.changeProductValue}
+        addProduct={props.addItemToSavedList}
+        inputElement={props.inputElement}
+        item={list}
+      />
       <TableComponent
         shoppingList={items}
         item={list}
@@ -44,6 +53,7 @@ const ListContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     savedLists: state.mainPageReducer.savedLists,
+    inputElement: state.mainPageReducer.inputElement,
   };
 };
 
@@ -51,4 +61,6 @@ export default connect(mapStateToProps, {
   deleteItemFromSavedList,
   editItemInSavedList,
   deleteList,
+  addItemToSavedList,
+  changeProductValue,
 })(ListContainer);

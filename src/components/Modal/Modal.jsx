@@ -12,7 +12,7 @@ const ModalWindow = (props) => {
 
   const showModal = () => {
     if (props.isAuth === false) {
-      history.push("/profile")
+      history.push("/login")
       return
     }
     setIsModalVisible(true);
@@ -48,6 +48,7 @@ const ModalWindow = (props) => {
         <span>Название списка</span>
         <Input
           placeholder={"Введите название списка"}
+          value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}

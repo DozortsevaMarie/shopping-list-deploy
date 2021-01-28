@@ -3,14 +3,20 @@
 }
 
 .header {
-    display: grid;
+    /*display: grid;*/
     height: 100%;
-    grid-template-rows: 1fr;
-    grid-template-columns: 9fr 1fr;
+    /*grid-template-rows: 1fr;*/
+    /*grid-template-columns: 1fr 9fr 1fr;*/
     /*grid-gap: 20px;*/
+    display: flex;
+    justify-content: space-between;
     background-color: #1890ff;
-    padding: 20px;
+    padding: 20px 50px;
     box-sizing: border-box;
+}
+
+.logo {
+    width: 50px;
 }
 
 .title {
