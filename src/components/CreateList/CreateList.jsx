@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Empty, Form, Input } from "antd";
+import { Empty } from "antd";
 import styles from "./CreateList.module.css";
-import classNames from "classnames";
 import {
   addProduct,
   changeProductValue,
@@ -13,30 +12,31 @@ import { connect } from "react-redux";
 import TableComponent from "../Table/TableComponent";
 import ModalWindow from "../Modal/Modal";
 import SuccessAlert from "../SuccessAlert/SuccessAlert";
+import AddItem from "../AddItem/AddItem";
 
 const CreateList = (props) => {
-  const { changeProductValue } = props;
-  const [state, setActive] = useState(false);
-  const [value, setValue] = useState();
+  // const { changeProductValue } = props;
+  // const [state, setActive] = useState(false);
+  // const [value, setValue] = useState();
   const [alertVisible, setAlertVisible] = useState(false);
-  const [inputValue, setInputValue] = useState();
+  // const [inputValue, setInputValue] = useState();
 
   const handleAlertClose = () => {
     setAlertVisible(false);
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     changeProductValue(value);
-  }, [value, changeProductValue]);
+  }, [value, changeProductValue]);*/
 
-  useEffect(() => setInputValue(props.inputElement), [props.inputElement]);
+  // useEffect(() => setInputValue(props.inputElement), [props.inputElement]);
 
-  const addProductToAList = () => {
+ /* const addProductToAList = () => {
     if (value !== null && value.length > 0) {
       props.addProduct(value);
       setValue(null);
     }
-  };
+  };*/
 
   return (
     <div>
@@ -44,7 +44,7 @@ const CreateList = (props) => {
       <div className={styles.alert}>
         {alertVisible && <SuccessAlert handleAlertClose={handleAlertClose} />}
       </div>
-      <Form
+      {/*<Form
         className={classNames(styles.input, {
           [styles.active]: state,
         })}
@@ -68,9 +68,12 @@ const CreateList = (props) => {
           [styles.hidden]: state,
         })}
       >
-        +<span className={styles.addText}>Добавить товар</span>
-      </Button>
-
+       +<span className={styles.addText}>Добавить товар</span>
+      </Button>*/}
+      <AddItem changeProductValue={props.changeProductValue}
+               addProduct={props.addProduct}
+               inputElement={props.inputElement}
+      />
       <div className={styles.emptyListImage}>
         {props.shoppingList.length === 0 && (
           <Empty description={"Список пуст"} />
@@ -80,8 +83,6 @@ const CreateList = (props) => {
             <TableComponent
               shoppingList={props.shoppingList}
               deleteProduct={props.deleteProduct}
-              addProductToAList={addProductToAList}
-              value={value}
               editContent={props.editContent}
             />
             <ModalWindow

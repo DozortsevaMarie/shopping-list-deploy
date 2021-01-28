@@ -12,7 +12,7 @@ const ModalWindow = (props) => {
 
   const showModal = () => {
     if (props.isAuth === false) {
-      history.push("/profile")
+      history.push("/login")
       return
     }
     setIsModalVisible(true);
