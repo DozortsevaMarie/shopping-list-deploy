@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { Button, Input, Modal } from "antd";
 import styles from "./Modal.module.css";
 import TextArea from "antd/es/input/TextArea";
+import {useHistory} from "react-router";
 
 const ModalWindow = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
+  let history = useHistory();
 
   const showModal = () => {
+    if (props.isAuth === false) {
+      history.push("/profile")
+      return
+    }
     setIsModalVisible(true);
   };
   const saveListAction = () => {

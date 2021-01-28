@@ -16,13 +16,9 @@ import SuccessAlert from "../SuccessAlert/SuccessAlert";
 
 const CreateList = (props) => {
   const { changeProductValue } = props;
-
   const [state, setActive] = useState(false);
-
   const [value, setValue] = useState();
-
   const [alertVisible, setAlertVisible] = useState(false);
-
   const [inputValue, setInputValue] = useState();
 
   const handleAlertClose = () => {
@@ -44,6 +40,7 @@ const CreateList = (props) => {
 
   return (
     <div>
+      <h1>Создать лист</h1>
       <div className={styles.alert}>
         {alertVisible && <SuccessAlert handleAlertClose={handleAlertClose} />}
       </div>
@@ -91,6 +88,7 @@ const CreateList = (props) => {
               saveList={props.saveList}
               shoppingList={props.shoppingList}
               setAlertVisible={setAlertVisible}
+              isAuth={props.isAuth}
             />
           </div>
         )}
@@ -103,6 +101,7 @@ const mapStateToProps = (state) => {
   return {
     inputElement: state.mainPageReducer.inputElement,
     shoppingList: state.mainPageReducer.shoppingList,
+    isAuth: state.loginReducer.isAuth,
   };
 };
 

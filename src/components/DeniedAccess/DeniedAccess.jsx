@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 
 const DeniedAccess = () => {
   let history = useHistory();
+
   return (
     <div className={styles.wrapper}>
       <div>
