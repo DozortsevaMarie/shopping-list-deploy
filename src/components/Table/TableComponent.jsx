@@ -87,13 +87,24 @@ const EditableCell = ({
 
 const TableComponent = (props) => {
   const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    if (page !== Math.ceil(props.shoppingList.length / 8)) {
+      setPage(Math.ceil(props.shoppingList.length / 8))
+    }
+  }, [props.shoppingList])
+
+  //(page - 1) * 8 + index + 1,
 
   const columns = [
     {
       title: "№",
       key: "index",
       width: "5%",
-      render: (value, item, index) => (page - 1) * 9 + index + 1,
+      render: (value, item, index) => (
+              (currentPage - 1) * 8 + index + 1
+      )
     },
     {
       title: "Название",
@@ -109,6 +120,14 @@ const TableComponent = (props) => {
       render: (text) => (
         <Button
           onClick={() => {
+            if (page !== Math.ceil(props.shoppingList.length / 9 && currentPage === page)) {
+              if (props.shoppingList.length > 9 && props.shoppingList.length % 9 === 0) {
+                setCurrentPage(currentPage)
+              }
+              else {
+                setCurrentPage(Math.ceil(props.shoppingList.length / 9))
+              }
+            }
             props.deleteProduct(props.item, text.id);
           }}
         >
@@ -174,8 +193,10 @@ const TableComponent = (props) => {
         rowClassName={() => styles.editableRow}
         pagination={{
           hideOnSinglePage: true,
-          pageSize: 9,
+          pageSize: 8,
+          current: currentPage,
           onChange(current) {
+            setCurrentPage(current);
             setPage(current);
           },
         }}
