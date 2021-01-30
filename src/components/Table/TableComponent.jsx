@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Button, Form, Input, Table } from "antd";
+import {Button, Form, Input, message, Table} from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import styles from "./Table.module.css";
 
@@ -129,6 +129,7 @@ const TableComponent = (props) => {
               }
             }
             props.deleteProduct(props.item, text.id);
+            message.success(`${text.name} удалён`);
           }}
         >
           <DeleteOutlined />
