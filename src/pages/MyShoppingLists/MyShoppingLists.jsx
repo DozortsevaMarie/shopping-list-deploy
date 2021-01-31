@@ -2,7 +2,12 @@ import React from "react";
 import { Empty } from "antd";
 import styles from "./MyShoppingLists.module.css";
 import { NavLink } from "react-router-dom";
-import ListCard from "../ListCard/ListCard";
+import ListCard from "../../components/ListCard/ListCard";
+import { connect } from "react-redux";
+import {
+  deleteItemFromSavedList,
+  deleteList,
+} from "../../redux/mainPageReducer";
 
 const MyShoppingLists = (props) => {
   return (
@@ -25,4 +30,13 @@ const MyShoppingLists = (props) => {
   );
 };
 
-export default MyShoppingLists;
+const mapStateToProps = (state) => {
+  return {
+    savedLists: state.mainPageReducer.savedLists,
+  };
+};
+
+export default connect(mapStateToProps, {
+  deleteItemFromSavedList,
+  deleteList,
+})(MyShoppingLists);

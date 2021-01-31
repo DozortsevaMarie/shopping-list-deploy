@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Button } from "antd";
 import {
@@ -20,7 +20,6 @@ const ListContainer = (props) => {
   let listIndex = props.savedLists.findIndex((item) => item.id === +id);
   let list = props.savedLists[listIndex];
   let items = list.items;
-
 
   const deleteListAction = () => {
     props.deleteList(list);

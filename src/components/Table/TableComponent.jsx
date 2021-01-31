@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import {Button, Form, Input, message, Table} from "antd";
+import { Button, Form, Input, message, Table } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import styles from "./Table.module.css";
 
@@ -91,20 +91,16 @@ const TableComponent = (props) => {
 
   useEffect(() => {
     if (page !== Math.ceil(props.shoppingList.length / 8)) {
-      setPage(Math.ceil(props.shoppingList.length / 8))
+      setPage(Math.ceil(props.shoppingList.length / 8));
     }
-  }, [props.shoppingList])
-
-  //(page - 1) * 8 + index + 1,
+  }, [props.shoppingList]);
 
   const columns = [
     {
       title: "№",
       key: "index",
       width: "5%",
-      render: (value, item, index) => (
-              (currentPage - 1) * 8 + index + 1
-      )
+      render: (value, item, index) => (currentPage - 1) * 8 + index + 1,
     },
     {
       title: "Название",
@@ -120,12 +116,17 @@ const TableComponent = (props) => {
       render: (text) => (
         <Button
           onClick={() => {
-            if (page !== Math.ceil(props.shoppingList.length / 9 && currentPage === page)) {
-              if (props.shoppingList.length > 9 && props.shoppingList.length % 9 === 0) {
-                setCurrentPage(currentPage)
-              }
-              else {
-                setCurrentPage(Math.ceil(props.shoppingList.length / 9))
+            if (
+              page !==
+              Math.ceil(props.shoppingList.length / 9 && currentPage === page)
+            ) {
+              if (
+                props.shoppingList.length > 9 &&
+                props.shoppingList.length % 9 === 0
+              ) {
+                setCurrentPage(currentPage);
+              } else {
+                setCurrentPage(Math.ceil(props.shoppingList.length / 9));
               }
             }
             props.deleteProduct(props.item, text.id);
@@ -147,11 +148,6 @@ const TableComponent = (props) => {
         selectedRows
       );
     },
-    getCheckboxProps: (record) => ({
-      disabled: record.name === "Disabled User",
-      // Column configuration not to be checked
-      name: record.name,
-    }),
   };
 
   const components = {

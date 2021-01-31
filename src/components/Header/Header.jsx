@@ -4,14 +4,16 @@ import { Avatar, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
-import logo from "./../../assets/logo.png"
+import logo from "./../../assets/logo.png";
+import {connect} from "react-redux";
+import {logout} from "../../redux/loginReducer";
 
 const Header = (props) => {
   const history = useHistory();
   return (
     <div className={styles.head}>
       <div className={styles.header}>
-          <img className={styles.logo} alt="logo" src={logo}/>
+        <img className={styles.logo} alt="logo" src={logo} />
         <h1 className={styles.title}>Мой список покупок</h1>
         <div className={styles.login}>
           <Avatar size="large" icon={<UserOutlined />} />
@@ -20,7 +22,13 @@ const Header = (props) => {
               <NavLink to={"/profile"} className={styles.text}>
                 {props.login}
               </NavLink>
-              <Button className={styles.btn} size="small" onClick={props.logout}>Выйти</Button>
+              <Button
+                className={styles.btn}
+                size="small"
+                onClick={props.logout}
+              >
+                Выйти
+              </Button>
             </div>
           ) : (
             <Button onClick={() => history.push("/login")}>Войти</Button>
@@ -31,4 +39,10 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+    isAuth: state.loginReducer.isAuth,
+    login: state.loginReducer.login,
+});
+
+export default connect(mapStateToProps, { logout })(Header);
+

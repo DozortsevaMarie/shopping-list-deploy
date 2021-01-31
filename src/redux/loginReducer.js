@@ -26,19 +26,12 @@ const setAuthUserData = (userId, login, isAuth) => ({
   data: { userId, login, isAuth },
 });
 
-/*export const getAuthUserDataThunk = () => (dispatch) => {
-  return authAPI.authorization().then((response) => {
-    if (response.data.resultCode === 0) {
-      let { id, email } = response.data.users;
-      dispatch(setAuthUserData(id, email, true));
-    }
-  });
-};*/
-
 export const login = (email, password, rememberMe) => (dispatch) => {
   authAPI.login(email, password, rememberMe).then((response) => {
     if (response.data.resultCode === 0) {
-      dispatch(setAuthUserData(response.data.user.id, response.data.user.email, true));
+      dispatch(
+        setAuthUserData(response.data.user.id, response.data.user.email, true)
+      );
     }
   });
 };
@@ -46,7 +39,7 @@ export const login = (email, password, rememberMe) => (dispatch) => {
 export const logout = () => (dispatch) => {
   authAPI.logout().then((response) => {
     if (response.data.resultCode === 0) {
-      dispatch(setAuthUserData(null, null,  false));
+      dispatch(setAuthUserData(null, null, false));
     }
   });
 };

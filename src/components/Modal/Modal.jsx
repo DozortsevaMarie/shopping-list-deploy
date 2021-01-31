@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import { Button, Input, Modal } from "antd";
 import styles from "./Modal.module.css";
 import TextArea from "antd/es/input/TextArea";
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
 
 const ModalWindow = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  let history = useHistory();
-
+  const history = useHistory();
 
   const showModal = () => {
     if (props.isAuth === false) {
-      history.push("/login")
-      return
+      history.push("/login");
+      return;
     }
     setIsModalVisible(true);
   };
+
   const saveListAction = () => {
-    let list = props.shoppingList;
+    const list = props.shoppingList;
     props.saveList(title, description, list);
   };
 
@@ -34,36 +34,36 @@ const ModalWindow = (props) => {
   };
 
   return (
-      <>
-        <Button type={"primary"} onClick={showModal} className={styles.saveBtn}>
-          Сохранить
-        </Button>
-        <Modal
-            title="Сохранить данный список?"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-            okText={"Да"}
-            cancelText={"Нет"}
-        >
-          <span>Название списка</span>
-          <Input
-              type="text"
-              placeholder={"Введите название списка"}
-              value={title}
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-          />
-          <span>Описание</span>
-          <TextArea
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-          />
-        </Modal>
-      </>
+    <>
+      <Button type={"primary"} onClick={showModal} className={styles.saveBtn}>
+        Сохранить
+      </Button>
+      <Modal
+        title="Сохранить данный список?"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okText={"Да"}
+        cancelText={"Нет"}
+      >
+        <span>Название списка</span>
+        <Input
+          type="text"
+          placeholder={"Введите название списка"}
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <span>Описание</span>
+        <TextArea
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
+      </Modal>
+    </>
   );
-}
+};
 
 export default ModalWindow;

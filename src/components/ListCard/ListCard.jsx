@@ -8,9 +8,7 @@ const ListCard = (props) => {
       bordered={false}
       style={{ width: "30%", margin: "10px" }}
     >
-      <div>
-        <p>{props.item.description}</p>
-      </div>
+      <p>{props.item.description}</p>
     </Card>
   );
 };

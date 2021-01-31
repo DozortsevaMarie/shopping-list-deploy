@@ -5,7 +5,7 @@ import styles from "./DeniedAccess.module.css";
 import { useHistory } from "react-router";
 
 const DeniedAccess = () => {
-  let history = useHistory();
+  const history = useHistory();
 
   return (
     <div className={styles.wrapper}>

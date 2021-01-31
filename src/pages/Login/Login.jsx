@@ -1,6 +1,8 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
+import { connect } from "react-redux";
+import { login } from "../../redux/loginReducer";
 
 const layout = {
   labelCol: { span: 4 },
@@ -52,7 +54,7 @@ const Login = (props) => {
       </Form.Item>
 
       <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit" >
+        <Button type="primary" htmlType="submit">
           Отправить
         </Button>
       </Form.Item>
@@ -60,5 +62,5 @@ const Login = (props) => {
   );
 };
 
-
-export default Login;
+const mapStateToProps = (state) => ({});
+export default connect(mapStateToProps, { login })(Login);

@@ -1,22 +1,18 @@
 .wrapper {
     margin-bottom: 10px;
 }
-
 .input {
     display: none;
 }
-
 .input.active {
     display: flex;
 }
 .addBtn {
     font-size: 1.1em;
 }
-
 .addBtn.hidden {
     display: none;
 }
-
 .addText {
     margin-left: 5px;
 }
