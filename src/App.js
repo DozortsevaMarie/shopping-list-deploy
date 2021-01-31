@@ -12,7 +12,8 @@ import CreateList from "./pages/CreateList/CreateList";
 import Header from "./components/Header/Header";
 
 const MyShoppingLists = React.lazy(() =>
-  import("./pages/MyShoppingLists/MyShoppingLists"));
+  import("./pages/MyShoppingLists/MyShoppingLists")
+);
 const Login = React.lazy(() => import("./pages/Login/Login"));
 
 function App(props) {

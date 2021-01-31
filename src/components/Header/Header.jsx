@@ -5,44 +5,37 @@ import { UserOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
 import logo from "./../../assets/logo.png";
-import {connect} from "react-redux";
-import {logout} from "../../redux/loginReducer";
+import { connect } from "react-redux";
+import { logOut } from "../../redux/loginReducer";
 
 const Header = (props) => {
   const history = useHistory();
   return (
-    <div className={styles.head}>
-      <div className={styles.header}>
-        <img className={styles.logo} alt="logo" src={logo} />
-        <h1 className={styles.title}>Мой список покупок</h1>
-        <div className={styles.login}>
-          <Avatar size="large" icon={<UserOutlined />} />
-          {props.isAuth ? (
-            <div>
-              <NavLink to={"/profile"} className={styles.text}>
-                {props.login}
-              </NavLink>
-              <Button
-                className={styles.btn}
-                size="small"
-                onClick={props.logout}
-              >
-                Выйти
-              </Button>
-            </div>
-          ) : (
-            <Button onClick={() => history.push("/login")}>Войти</Button>
-          )}
-        </div>
+    <div className={styles.header}>
+      <img className={styles.logo} alt="logo" src={logo} />
+      <h1 className={styles.title}>Мой список покупок</h1>
+      <div className={styles.login}>
+        <Avatar size="large" icon={<UserOutlined />} />
+        {props.isAuth ? (
+          <div>
+            <NavLink to={"/profile"} className={styles.text}>
+              {props.login}
+            </NavLink>
+            <Button className={styles.btn} size="small" onClick={props.logOut}>
+              Выйти
+            </Button>
+          </div>
+        ) : (
+          <Button onClick={() => history.push("/login")}>Войти</Button>
+        )}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-    isAuth: state.loginReducer.isAuth,
-    login: state.loginReducer.login,
+const mapStateToProps = ({ loginReducer }) => ({
+  isAuth: loginReducer.isAuth,
+  login: loginReducer.login,
 });
 
-export default connect(mapStateToProps, { logout })(Header);
-
+export default connect(mapStateToProps, { logOut })(Header);

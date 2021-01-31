@@ -56,15 +56,10 @@ const EditableCell = ({
   if (editable) {
     childNode = editing ? (
       <Form.Item
-        style={{
-          margin: 0,
-        }}
+        style={{ margin: 0 }}
         name={dataIndex}
         rules={[
-          {
-            required: true,
-            message: `${title} продукта необходимо добавить.`,
-          },
+          { required: true, message: `${title} продукта необходимо добавить.` },
         ]}
       >
         <Input ref={inputRef} onPressEnter={save} onBlur={save} />
@@ -72,9 +67,7 @@ const EditableCell = ({
     ) : (
       <div
         className={styles.editableCellValueWrap}
-        style={{
-          paddingRight: 24,
-        }}
+        style={{ paddingRight: 24 }}
         onClick={toggleEdit}
       >
         {children}{" "}
@@ -90,8 +83,9 @@ const TableComponent = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    if (page !== Math.ceil(props.shoppingList.length / 8)) {
-      setPage(Math.ceil(props.shoppingList.length / 8));
+    const aliquotToEight = Math.ceil(props.shoppingList.length / 8);
+    if (page !== aliquotToEight) {
+      setPage(aliquotToEight);
     }
   }, [props.shoppingList]);
 
@@ -116,18 +110,16 @@ const TableComponent = (props) => {
       render: (text) => (
         <Button
           onClick={() => {
+            let aliquotToNine = Math.ceil(props.shoppingList.length / 9);
             if (
-              page !==
-              Math.ceil(props.shoppingList.length / 9 && currentPage === page)
+              page !== aliquotToNine && currentPage === page
             ) {
-              if (
                 props.shoppingList.length > 9 &&
                 props.shoppingList.length % 9 === 0
-              ) {
-                setCurrentPage(currentPage);
-              } else {
-                setCurrentPage(Math.ceil(props.shoppingList.length / 9));
-              }
+              ?
+                setCurrentPage(currentPage)
+              :
+                setCurrentPage(aliquotToNine);
             }
             props.deleteProduct(props.item, text.id);
             message.success(`${text.name} удалён`);
@@ -157,15 +149,13 @@ const TableComponent = (props) => {
     },
   };
 
-  const handleSave = (row) => {
-    props.editContent(props.item, row);
-  };
+  const handleSave = (row) => props.editContent(props.item, row);
+
 
   const newColumns = columns.map((col) => {
     if (!col.editable) {
       return col;
     }
-
     return {
       ...col,
       onCell: (record) => ({
@@ -177,8 +167,9 @@ const TableComponent = (props) => {
       }),
     };
   });
+
   return (
-    <div>
+    <>
       <Table
         components={components}
         dataSource={props.shoppingList}
@@ -198,7 +189,7 @@ const TableComponent = (props) => {
           },
         }}
       />
-    </div>
+    </>
   );
 };
 

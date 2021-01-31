@@ -1,4 +1,3 @@
-const CHANGE_PRODUCT_VALUE = "CHANGE_PRODUCT_VALUE";
 const ADD_PRODUCT = "ADD_PRODUCT";
 const DELETE_PRODUCT = "DELETE_PRODUCT";
 const EDIT_CONTENT = "EDIT_CONTENT";
@@ -9,50 +8,42 @@ const EDIT_ITEM_IN_SAVED_LIST = "EDIT_ITEM_IN_SAVED_LIST";
 const DELETE_LIST = "DELETE_LIST";
 
 let initialState = {
-  inputElement: "",
   shoppingList: [],
   savedLists: [],
 };
 
 const generateNumber = () => {
-    return Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+  return Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
 };
 const addNewProduct = (action) => {
-    return {
-        key: generateNumber(),
-        id: generateNumber(),
-        name: action.name,
-    }
+  return {
+    key: generateNumber(),
+    id: generateNumber(),
+    name: action.name,
+  };
 };
 const addNewList = (action) => {
-    return {
-        id: generateNumber(),
-        title: action.title,
-        description: action.description,
-        items: action.list,
-    }
+  return {
+    id: generateNumber(),
+    title: action.title,
+    description: action.description,
+    items: action.list,
+  };
 };
 const findIndex = (state, action) => {
-    return state.savedLists.findIndex(
-            (item) => item.id === action.item.id
-    )
+  return state.savedLists.findIndex((item) => item.id === action.item.id);
 };
 const updateList = (state, action, result) => {
-    return {
-        id: action.item.id,
-        title: action.item.title,
-        description: action.item.description,
-        items: result,
-    }
-}
+  return {
+    id: action.item.id,
+    title: action.item.title,
+    description: action.item.description,
+    items: result,
+  };
+};
 
 const mainPageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_PRODUCT_VALUE:
-      return {
-        ...state,
-        inputElement: action.value,
-      };
     case ADD_PRODUCT:
       return {
         ...state,
@@ -90,8 +81,14 @@ const mainPageReducer = (state = initialState, action) => {
         ...state,
         savedLists: [
           ...state.savedLists.slice(0, findIndex(state, action)),
-          updateList(state, action, [...action.item.items, addNewProduct(action)]),
-          ...state.savedLists.slice(findIndex(state,action) + 1, state.savedLists.length),
+          updateList(state, action, [
+            ...action.item.items,
+            addNewProduct(action),
+          ]),
+          ...state.savedLists.slice(
+            findIndex(state, action) + 1,
+            state.savedLists.length
+          ),
         ],
       };
     case DELETE_ITEM_FROM_SAVED_LIST:
@@ -99,24 +96,34 @@ const mainPageReducer = (state = initialState, action) => {
         ...state,
         savedLists: [
           ...state.savedLists.slice(0, findIndex(state, action)),
-          updateList(state, action, action.item.items.filter((i) => i.id !== action.id)),
-          ...state.savedLists.slice(findIndex(state, action) + 1, state.savedLists.length),
+          updateList(
+            state,
+            action,
+            action.item.items.filter((i) => i.id !== action.id)
+          ),
+          ...state.savedLists.slice(
+            findIndex(state, action) + 1,
+            state.savedLists.length
+          ),
         ],
       };
     case EDIT_ITEM_IN_SAVED_LIST:
-      let itemIndex = state.savedLists[findIndex(state, action)].items.findIndex(
-        (item) => action.row.key === item.key
-      );
+      let itemIndex = state.savedLists[
+        findIndex(state, action)
+      ].items.findIndex((item) => action.row.key === item.key);
       return {
         ...state,
         savedLists: [
           ...state.savedLists.slice(0, findIndex(state, action)),
           updateList(state, action, [
-              ...action.item.items.slice(0, itemIndex),
-              action.row,
-              ...action.item.items.slice(itemIndex + 1, action.item.items.length),
+            ...action.item.items.slice(0, itemIndex),
+            action.row,
+            ...action.item.items.slice(itemIndex + 1, action.item.items.length),
           ]),
-          ...state.savedLists.slice(findIndex(state, action) + 1, state.savedLists.length),
+          ...state.savedLists.slice(
+            findIndex(state, action) + 1,
+            state.savedLists.length
+          ),
         ],
       };
 
@@ -133,10 +140,6 @@ const mainPageReducer = (state = initialState, action) => {
   }
 };
 
-export const changeProductValue = (value) => ({
-  type: CHANGE_PRODUCT_VALUE,
-  value,
-});
 
 export const addProduct = (item, name) => ({ type: ADD_PRODUCT, item, name });
 

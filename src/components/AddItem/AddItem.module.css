@@ -1,18 +1,18 @@
 .wrapper {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .input {
-    display: none;
+  display: none;
 }
 .input.active {
-    display: flex;
+  display: flex;
 }
 .addBtn {
-    font-size: 1.1em;
+  font-size: 1.1em;
 }
 .addBtn.hidden {
-    display: none;
+  display: none;
 }
 .addText {
-    margin-left: 5px;
+  margin-left: 5px;
 }

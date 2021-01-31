@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Input, Modal } from "antd";
-import styles from "./Modal.module.css";
+import styles from "./ModalWindow.module.css";
 import TextArea from "antd/es/input/TextArea";
 import { useHistory } from "react-router";
 
@@ -29,9 +29,7 @@ const ModalWindow = (props) => {
     props.setAlertVisible(true);
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  const handleCancel = () => setIsModalVisible(false);
 
   return (
     <>
@@ -51,15 +49,12 @@ const ModalWindow = (props) => {
           type="text"
           placeholder={"Введите название списка"}
           value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <span>Описание</span>
         <TextArea
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
       </Modal>
     </>

@@ -9,10 +9,8 @@ const DeniedAccess = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div>
         <FrownTwoTone style={{ fontSize: "50px", color: "#08c" }} />
         <span className={styles.span}>Вы ещё не вошли в свой аккаунт</span>
-      </div>
       <Button type="primary" onClick={() => history.push("/login")}>
         Войти
       </Button>
