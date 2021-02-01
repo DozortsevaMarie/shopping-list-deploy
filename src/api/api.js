@@ -15,9 +15,8 @@ createServer({
 
     let newId = 3;
     this.post("api/auth/login", (schema, request) => {
-      let attrs = JSON.parse(request.requestBody);
+      const attrs = JSON.parse(request.requestBody);
       attrs.id = newId++;
-
       return {
         resultCode: 0,
         user: attrs,
@@ -25,8 +24,7 @@ createServer({
     });
 
     this.post("api/profile/photo", (schema, request) => {
-      let data = JSON.parse(request.requestBody);
-
+      const data = JSON.parse(request.requestBody);
       return {
         resultCode: 0,
         data: data,
@@ -36,32 +34,21 @@ createServer({
     this.delete("api/auth/login", () => {
       return {
         resultCode: 0,
-      }
-    })
+      };
+    });
   },
 });
 
-
-let instance = axios.create({
+const instance = axios.create({
   baseURL: `api/`,
   withCredentials: true,
 });
 
-
 export const authAPI = {
-  /*authorization() {
-    return(
-        instance.get(`auth/me`)
-    )
-  },*/
-  login(email, password, rememberMe = false) {
-    return (
-        instance.post(`auth/login`, {email, password, rememberMe})
-    )
+  logIn(email, password, rememberMe = false) {
+    return instance.post(`auth/login`, { email, password, rememberMe });
   },
-  logout() {
-    return (
-        instance.delete(`auth/login`)
-    )
+  logOut() {
+    return instance.delete(`auth/login`);
   },
-}
+};

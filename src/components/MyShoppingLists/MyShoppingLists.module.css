@@ -1,9 +1,0 @@
-.siteCardBorderLessWrapper {
-    padding: 30px;
-    box-sizing: border-box;
-    background: #ececec;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-}
