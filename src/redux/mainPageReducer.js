@@ -62,6 +62,7 @@ const mainPageReducer = (state = initialState, action) => {
         case ADD_ITEM_TO_SAVED_LIST:
             let arrIndex = state.savedLists.findIndex(item => item.id === action.item.id);
             let newItem = {
+                key: Math.floor(Math.random() * Math.floor(Math.random() * Date.now())),
                 id: Math.floor(Math.random() * Math.floor(Math.random() * Date.now())),
                 name: action.name,
             }

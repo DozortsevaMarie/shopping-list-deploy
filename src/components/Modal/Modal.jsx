@@ -6,9 +6,10 @@ import {useHistory} from "react-router";
 
 const ModalWindow = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [title, setTitle] = useState(null);
-  const [description, setDescription] = useState(null);
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
   let history = useHistory();
+
 
   const showModal = () => {
     if (props.isAuth === false) {
@@ -33,35 +34,36 @@ const ModalWindow = (props) => {
   };
 
   return (
-    <>
-      <Button type={"primary"} onClick={showModal} className={styles.saveBtn}>
-        Сохранить
-      </Button>
-      <Modal
-        title="Сохранить данный список?"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        okText={"Да"}
-        cancelText={"Нет"}
-      >
-        <span>Название списка</span>
-        <Input
-          placeholder={"Введите название списка"}
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <span>Описание</span>
-        <TextArea
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
-      </Modal>
-    </>
+      <>
+        <Button type={"primary"} onClick={showModal} className={styles.saveBtn}>
+          Сохранить
+        </Button>
+        <Modal
+            title="Сохранить данный список?"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            okText={"Да"}
+            cancelText={"Нет"}
+        >
+          <span>Название списка</span>
+          <Input
+              type="text"
+              placeholder={"Введите название списка"}
+              value={title}
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+          />
+          <span>Описание</span>
+          <TextArea
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+          />
+        </Modal>
+      </>
   );
-};
+}
 
 export default ModalWindow;
