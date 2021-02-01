@@ -1,17 +1,16 @@
 .wrapper {
-    text-align: center;
-    display: grid;
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 20% 1fr;
-    grid-template-areas: 'header header'
-                      'nav content';
-    grid-gap: 15px;
-    justify-content: center;
-    width: 80%;
-    margin: 0 auto;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 20% 1fr;
+  grid-template-areas:
+    "header header"
+    "nav content";
+  grid-gap: 15px;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
 }
-
 .content {
-    grid-area: content;
+  grid-area: content;
 }
-

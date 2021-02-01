@@ -1,6 +1,8 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
+import { connect } from "react-redux";
+import { logIn } from "../../redux/loginReducer";
 
 const layout = {
   labelCol: { span: 4 },
@@ -14,7 +16,7 @@ const Login = (props) => {
   const history = useHistory();
 
   const onFinish = (values) => {
-    props.login(values.username, values.password, values.remember);
+    props.logIn(values.username, values.password, values.remember);
     history.goBack();
     console.log("Success:", values);
   };
@@ -52,7 +54,7 @@ const Login = (props) => {
       </Form.Item>
 
       <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit" >
+        <Button type="primary" htmlType="submit">
           Отправить
         </Button>
       </Form.Item>
@@ -60,5 +62,4 @@ const Login = (props) => {
   );
 };
 
-
-export default Login;
+export default connect(null, { logIn })(Login);

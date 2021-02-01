@@ -5,14 +5,12 @@ import styles from "./DeniedAccess.module.css";
 import { useHistory } from "react-router";
 
 const DeniedAccess = () => {
-  let history = useHistory();
+  const history = useHistory();
 
   return (
     <div className={styles.wrapper}>
-      <div>
         <FrownTwoTone style={{ fontSize: "50px", color: "#08c" }} />
         <span className={styles.span}>Вы ещё не вошли в свой аккаунт</span>
-      </div>
       <Button type="primary" onClick={() => history.push("/login")}>
         Войти
       </Button>

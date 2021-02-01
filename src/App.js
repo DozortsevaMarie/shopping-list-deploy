@@ -1,25 +1,25 @@
 import React from "react";
 import styles from "./App.module.css";
 import "antd/dist/antd.css";
-import CreateList from "./components/CreateList/CreateList";
 import { Redirect, Route, Switch } from "react-router";
-import AboutUs from "./components/AboutUs/AboutUs";
-import Settings from "./components/Settings/Settings";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Settings from "./pages/Settings/Settings";
 import NavBar from "./components/NavBar/NavBar";
 import ListContainer from "./components/ListContainer/ListContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginContainer from "./components/Login/LoginContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+import ProfileContainer from "./pages/Profile/ProfileContainer";
 import { connect } from "react-redux";
+import CreateList from "./pages/CreateList/CreateList";
+import Header from "./components/Header/Header";
 
-const MyShoppingListsContainer = React.lazy(() =>
-  import("./components/MyShoppingLists/MyShoppingListsContainer")
+const MyShoppingLists = React.lazy(() =>
+  import("./pages/MyShoppingLists/MyShoppingLists")
 );
+const Login = React.lazy(() => import("./pages/Login/Login"));
 
 function App(props) {
   return (
     <div className={styles.wrapper}>
-      <HeaderContainer />
+      <Header />
       <NavBar />
       <div className={styles.content}>
         <Route path={"/create-list"} component={CreateList} />
@@ -30,7 +30,7 @@ function App(props) {
             path={"/lists"}
             render={() => (
               <React.Suspense fallback={<div>Loading...</div>}>
-                <MyShoppingListsContainer />
+                <MyShoppingLists />
               </React.Suspense>
             )}
           />
@@ -48,7 +48,7 @@ function App(props) {
           path={"/login"}
           render={() => (
             <React.Suspense fallback={<div>Loading...</div>}>
-              <LoginContainer />
+              <Login />
             </React.Suspense>
           )}
         />

@@ -1,13 +1,12 @@
 .wrapper {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-
 .span {
-    font-size: 2rem;
-    color: #08c;
-    margin: 20px;
+  font-size: 2rem;
+  color: #08c;
+  margin: 20px;
 }
