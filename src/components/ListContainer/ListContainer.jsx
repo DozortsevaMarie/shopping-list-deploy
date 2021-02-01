@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { connect } from "react-redux";
 import { Button } from "antd";
 import {
@@ -12,16 +12,24 @@ import { useHistory, useParams } from "react-router";
 import TableComponent from "../Table/TableComponent";
 import AddItem from "../AddItem/AddItem";
 import styles from "./ListContainer.module.css";
+import PopConfirm from "../Popconfirm/Popconfirm";
 
 const ListContainer = (props) => {
   let { id } = useParams();
   let history = useHistory();
   let listIndex = props.savedLists.findIndex((item) => item.id === +id);
   let list = props.savedLists[listIndex];
-  let items = props.savedLists[listIndex].items;
+  let items = list.items;
+
+
   const deleteListAction = () => {
     props.deleteList(list);
     history.push("/lists");
+  };
+
+  const [visible, setVisible] = React.useState(false);
+  const showConfirm = () => {
+    setVisible(true);
   };
 
   return (
@@ -40,13 +48,14 @@ const ListContainer = (props) => {
         editContent={props.editItemInSavedList}
         deleteProduct={props.deleteItemFromSavedList}
       />
-      <Button
-        onClick={deleteListAction}
-        type="primary"
-        className={styles.DeleteBtn}
-      >
+      <Button onClick={showConfirm} type="primary" className={styles.DeleteBtn}>
         Удалить список
       </Button>
+      <PopConfirm
+        visible={visible}
+        setVisible={setVisible}
+        deleteListAction={deleteListAction}
+      />
     </div>
   );
 };

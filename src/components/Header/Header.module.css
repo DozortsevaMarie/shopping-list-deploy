@@ -3,13 +3,10 @@
 }
 
 .header {
-    /*display: grid;*/
+    display: grid;
     height: 100%;
-    /*grid-template-rows: 1fr;*/
-    /*grid-template-columns: 1fr 9fr 1fr;*/
-    /*grid-gap: 20px;*/
-    display: flex;
-    justify-content: space-between;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 9fr 1fr;
     background-color: #1890ff;
     padding: 20px 50px;
     box-sizing: border-box;
