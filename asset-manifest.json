@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/shopping-list-deploy/static/css/main.3485bbd8.chunk.css",
+    "main.js": "/shopping-list-deploy/static/js/main.fa212b71.chunk.js",
+    "main.js.map": "/shopping-list-deploy/static/js/main.fa212b71.chunk.js.map",
+    "runtime-main.js": "/shopping-list-deploy/static/js/runtime-main.c14b65f5.js",
+    "runtime-main.js.map": "/shopping-list-deploy/static/js/runtime-main.c14b65f5.js.map",
+    "static/css/2.f3f01324.chunk.css": "/shopping-list-deploy/static/css/2.f3f01324.chunk.css",
+    "static/js/2.5c9b79af.chunk.js": "/shopping-list-deploy/static/js/2.5c9b79af.chunk.js",
+    "static/js/2.5c9b79af.chunk.js.map": "/shopping-list-deploy/static/js/2.5c9b79af.chunk.js.map",
+    "static/css/3.d92b6526.chunk.css": "/shopping-list-deploy/static/css/3.d92b6526.chunk.css",
+    "static/js/3.962b7a18.chunk.js": "/shopping-list-deploy/static/js/3.962b7a18.chunk.js",
+    "static/js/3.962b7a18.chunk.js.map": "/shopping-list-deploy/static/js/3.962b7a18.chunk.js.map",
+    "static/js/4.73c29ae0.chunk.js": "/shopping-list-deploy/static/js/4.73c29ae0.chunk.js",
+    "static/js/4.73c29ae0.chunk.js.map": "/shopping-list-deploy/static/js/4.73c29ae0.chunk.js.map",
+    "static/js/5.c5801930.chunk.js": "/shopping-list-deploy/static/js/5.c5801930.chunk.js",
+    "static/js/5.c5801930.chunk.js.map": "/shopping-list-deploy/static/js/5.c5801930.chunk.js.map",
+    "static/js/6.21ad0801.chunk.js": "/shopping-list-deploy/static/js/6.21ad0801.chunk.js",
+    "static/js/6.21ad0801.chunk.js.map": "/shopping-list-deploy/static/js/6.21ad0801.chunk.js.map",
+    "index.html": "/shopping-list-deploy/index.html",
+    "static/css/2.f3f01324.chunk.css.map": "/shopping-list-deploy/static/css/2.f3f01324.chunk.css.map",
+    "static/css/3.d92b6526.chunk.css.map": "/shopping-list-deploy/static/css/3.d92b6526.chunk.css.map",
+    "static/css/main.3485bbd8.chunk.css.map": "/shopping-list-deploy/static/css/main.3485bbd8.chunk.css.map",
+    "static/js/2.5c9b79af.chunk.js.LICENSE.txt": "/shopping-list-deploy/static/js/2.5c9b79af.chunk.js.LICENSE.txt",
+    "static/media/logo.03be4c66.png": "/shopping-list-deploy/static/media/logo.03be4c66.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c14b65f5.js",
+    "static/css/2.f3f01324.chunk.css",
+    "static/js/2.5c9b79af.chunk.js",
+    "static/css/main.3485bbd8.chunk.css",
+    "static/js/main.fa212b71.chunk.js"
+  ]
+}
