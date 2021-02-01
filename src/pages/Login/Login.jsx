@@ -18,11 +18,10 @@ const Login = (props) => {
   const onFinish = (values) => {
     props.logIn(values.username, values.password, values.remember);
     history.goBack();
-    console.log("Success:", values);
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    alert("Failed:" + errorInfo);
   };
 
   return (

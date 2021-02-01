@@ -47,7 +47,7 @@ const EditableCell = ({
       toggleEdit();
       handleSave({ ...record, ...values });
     } catch (errInfo) {
-      console.log("Save failed:", errInfo);
+      alert(errInfo);
     }
   };
 
@@ -134,11 +134,8 @@ const TableComponent = (props) => {
   const selectionType = "checkbox";
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(
-        `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
-        selectedRows
-      );
+        `selectedRowKeys: ${selectedRowKeys}`;
+        `selectedRows: " ${selectedRows}`
     },
   };
 
