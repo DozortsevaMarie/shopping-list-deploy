@@ -10,3 +10,10 @@
   color: #08c;
   margin: 20px;
 }
+
+
+@media (max-width: 1000px) {
+  .wrapper {
+    margin-top: 50px;
+  }
+}

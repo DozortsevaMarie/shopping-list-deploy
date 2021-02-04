@@ -32,3 +32,31 @@
 .btn {
   margin-top: 10px;
 }
+
+@media (max-width: 950px) {
+  .header {
+    grid-template-columns: 3fr 1fr;
+  }
+  .title {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .login {
+    grid-template-columns: 3fr 1fr;
+    justify-items: end;
+  }
+  .text {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,10 @@
+.drawer {
+	grid-area: drawer;
+	padding: 0;
+}
+
+@media (min-width: 1001px) {
+	.drawer {
+		display: none;
+	}
+}

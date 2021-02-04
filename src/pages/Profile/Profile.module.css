@@ -13,3 +13,10 @@
 .login {
   font-size: 1.2rem;
 }
+
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
